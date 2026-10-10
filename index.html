@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#491925">
+<title>Ram & Sita | Wedding Invitation</title>
+
+<style>
+:root {
+  --wine: #491925;
+  --gold: #ae854c;
+  --cream: #fff9ee;
+  --ink: #492c31;
+  --muted: #846b65;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body.locked { overflow: hidden; }
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+
+/* TEMPLE ENTRANCE */
+
+#entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: #efd4a3;
+  background: radial-gradient(ellipse at top, #793441, #260e15);
+  transition: opacity .8s, visibility .8s;
+}
+
+#entrance.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.entrance-title {
+  font-size: 27px;
+  text-align: center;
+}
+
+.entrance-title small {
+  display: block;
+  margin-top: 12px;
+  font: 10px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.temple-frame {
+  position: relative;
+  width: min(410px, 85vw);
+  height: min(58vh, 550px);
+  margin: 30px 0;
+  border: 8px double #b88d52;
+  border-radius: 190px 190px 0 0;
+  background: #fff2ce;
+  box-shadow:
+    0 0 0 8px #35121c,
+    0 0 0 10px #ae854c,
+    0 25px 80px #0006;
+}
+
+#doorButton {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  border: 0;
+  background: transparent;
+  perspective: 1100px;
+  border-radius: inherit;
+}
+
+.door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border: 3px solid #b88d52;
+  background: repeating-linear-gradient(
+    90deg, #431922, #57232e 18px, #38131d 22px
+  );
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform 1.6s ease;
+}
+
+.door.left {
+  left: 0;
+  border-radius: 190px 0 0 0;
+  transform-origin: left;
+}
+
+.door.right {
+  right: 0;
+  border-radius: 0 190px 0 0;
+  transform-origin: right;
+}
+
+.door .flower {
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #c59d62;
+  font-size: 75px;
+  text-shadow: 0 3px 4px #000;
+}
+
+.door .panel {
+  position: absolute;
+  inset: 55% 14% 9%;
+  border: 6px double #b88d52;
+  border-radius: 70px 70px 0 0;
+}
+
+.door .handle {
+  position: absolute;
+  top: 58%;
+  width: 14px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #765126, #ebcf91, #765126);
+}
+
+.left .handle { right: 12%; }
+.right .handle { left: 12%; }
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--wine);
+  font-size: 21px;
+  background: #d7b380;
+  box-shadow: 0 0 0 5px #b28451, 0 0 0 8px #edcba3;
+  transition: opacity .3s;
+}
+
+#entrance.open .left { transform: rotateY(-105deg); }
+#entrance.open .right { transform: rotateY(105deg); }
+#entrance.open .seal { opacity: 0; }
+
+.tap-hint {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.entrance-note {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* INVITATION */
+
+main { overflow: hidden; }
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6vw;
+  background: #fff9eef5;
+  border-bottom: 1px solid #ae854c40;
+}
+
+nav > a {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+nav div { display: flex; gap: 24px; }
+nav div a { font-size: 13px; text-decoration: none; }
+
+.hero {
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 24px;
+  text-align: center;
+  background: radial-gradient(ellipse at center, #edddc780, transparent 75%);
+}
+
+.flourish {
+  color: var(--gold);
+  font-size: 35px;
+  letter-spacing: 12px;
+}
+
+.eyebrow {
+  font: 11px/1.8 Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+h1 {
+  font-weight: normal;
+  font-size: clamp(68px, 9vw, 115px);
+  line-height: 1;
+  margin: 28px 0 12px;
+}
+
+h1 span { display: block; }
+
+h1 em {
+  display: block;
+  font-size: 45px;
+  margin: 16px;
+  color: var(--gold);
+}
+
+.hero-subtitle { font-size: 20px; font-style: italic; }
+
+.invitation-copy {
+  max-width: 450px;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.ornament {
+  color: var(--gold);
+  letter-spacing: 5px;
+  margin: 15px;
+}
+
+.text-button {
+  background: none;
+  border: 0;
+  padding: 12px;
+  color: var(--wine);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  font-size: 14px;
+}
+
+section {
+  text-align: center;
+  padding: 75px 24px;
+}
+
+h2 {
+  font-size: clamp(34px, 5vw, 48px);
+  font-style: italic;
+  font-weight: normal;
+  margin: 16px 0 25px;
+}
+
+h3 { font-size: 25px; font-weight: normal; }
+
+.section-copy {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* PHOTO SECTIONS */
+
+.photo-section {
+  max-width: 950px;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.photo {
+  position: relative;
+  margin: 0;
+  min-height: 410px;
+  overflow: hidden;
+  border: 1px solid #ae854c70;
+  background: linear-gradient(135deg, #e7d7bd, #f6eee0, #dbb7af);
+}
+
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid #ae854c80;
+  pointer-events: none;
+}
+
+.photo.arch {
+  max-width: 620px;
+  margin: auto;
+  min-height: 520px;
+  border-radius: 300px 300px 8px 8px;
+}
+
+.photo-placeholder {
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  color: #896752;
+}
+
+.photo-placeholder span {
+  font-size: 85px;
+  color: #b18f65;
+}
+
+.photo-placeholder p {
+  font-size: 27px;
+  font-style: italic;
+  margin: 16px 0;
+}
+
+.photo-placeholder small {
+  font: 10px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-caption { font-size: 23px; line-height: 1.8; }
+.photo-caption em { color: var(--gold); }
+
+/* SCRATCH CARD */
+
+.date-section {
+  background: #f3e8d8;
+  border-top: 1px solid #ae854c40;
+  border-bottom: 1px solid #ae854c40;
+}
+
+.scratch-card {
+  position: relative;
+  width: min(360px, 100%);
+  height: 260px;
+  margin: 32px auto 12px;
+  border: 1px solid var(--gold);
+  border-radius: 140px 140px 12px 12px;
+  overflow: hidden;
+  background: #fffaf1;
+  box-shadow: 0 10px 35px #49192512;
+}
+
+.date-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.date-content strong { font-size: 72px; line-height: 1; }
+.date-content small { font-size: 12px; letter-spacing: 1px; }
+
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+  transition: opacity .7s;
+}
+
+#scratchCanvas.revealed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.small { font: 12px/1.8 Arial, sans-serif; color: var(--muted); }
+
+/* COUNTDOWN */
+
+.countdown-wrapper { margin-top: 50px; }
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.countdown div {
+  min-width: 76px;
+  padding: 20px 8px;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.countdown b {
+  display: block;
+  font-size: 38px;
+  font-weight: normal;
+}
+
+.countdown span {
+  display: block;
+  margin-top: 10px;
+  font: 9px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* EVENTS */
+
+.timeline {
+  max-width: 620px;
+  margin: 45px auto 0;
+  text-align: left;
+}
+
+.event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  gap: 22px;
+  padding-bottom: 35px;
+}
+
+.event:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 65px;
+  bottom: 0;
+  width: 1px;
+  background: #ae854c65;
+}
+
+.event-icon {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ae854c80;
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 29px;
+}
+
+.event h3 { margin: 4px 0 10px; }
+.event time { color: var(--gold); font-size: 14px; }
+.event p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+/* VENUE */
+
+.venue-section { background: var(--wine); color: var(--cream); }
+.venue-section .section-copy { color: #ddc9bc; }
+
+.venue-art {
+  color: #cba26b;
+  font-size: 95px;
+  margin: 15px 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 16px 25px;
+  border: 1px solid var(--wine);
+  background: var(--wine);
+  color: #fff8e9;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.venue-section .button {
+  margin: 20px 0;
+  background: #ead5b5;
+  color: var(--wine);
+}
+
+/* RSVP */
+
+.rsvp-section { max-width: 620px; margin: auto; }
+form { text-align: left; }
+
+label {
+  display: block;
+  margin: 20px 0;
+  font: 12px/1.6 Arial, sans-serif;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 8px;
+  padding: 13px;
+  border: 1px solid #bda58a;
+  border-radius: 0;
+  background: #fffdf7;
+  color: var(--ink);
+}
+
+textarea { resize: vertical; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+form .button { width: 100%; margin-top: 10px; }
+
+/* FOOTER AND FLOWERS */
+
+footer {
+  padding: 60px 24px;
+  text-align: center;
+  background: #f3e8d8;
+}
+
+footer h2 { font-size: 30px; }
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 30px 0;
+  font-size: 14px;
+}
+
+#petals {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  width: 13px;
+  height: 22px;
+  border-radius: 90% 5% 80% 10%;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(680deg);
+  }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 17px 22px; }
+  nav div { gap: 16px; }
+  nav div a { font-size: 12px; }
+  .hero { min-height: 670px; }
+  section { padding: 60px 22px; }
+  .photo-section { padding: 20px 25px 35px; }
+  .photo { min-height: 310px; }
+  .photo.arch { min-height: 420px; }
+  .photo-placeholder p { font-size: 23px; }
+  .photo-caption { font-size: 20px; }
+  .countdown { gap: 8px; }
+  .countdown div { min-width: 62px; }
+  .countdown b { font-size: 30px; }
+  .form-row { gap: 10px; }
+  .event { gap: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .door, #entrance, .seal, #scratchCanvas { transition: none; }
+  .petal { display: none; }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<div id="petals" aria-hidden="true"></div>
+
+<!-- OPENING TEMPLE DOORS -->
+<div id="entrance">
+  <div class="entrance-title">
+    शुभ विवाह
+    <small>A celebration of love</small>
+  </div>
+
+  <div class="temple-frame">
+    <button id="doorButton" aria-label="Open the temple doors">
+      <span class="door left" aria-hidden="true">
+        <span class="flower">✺</span>
+        <span class="panel"></span>
+        <span class="handle"></span>
+      </span>
+
+      <span class="door right" aria-hidden="true">
+        <span class="flower">✺</span>
+        <span class="panel"></span>
+        <span class="handle"></span>
+      </span>
+
+      <span class="seal" id="doorInitials">R & S</span>
+    </button>
+  </div>
+
+  <p class="tap-hint">TAP THE DOORS TO ENTER ✧</p>
+  <p class="entrance-note">Two hearts. One beautiful beginning.</p>
+</div>
+
+<main id="invitation" inert>
+
+  <nav>
+    <a href="#home" id="navInitials">R & S</a>
+    <div>
+      <a href="#events">Events</a>
+      <a href="#venue">Venue</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <!-- COUPLE INTRODUCTION -->
+  <header id="home" class="hero">
+    <div class="flourish" aria-hidden="true">❧ ✿ ❦ ✿ ❧</div>
+    <p class="eyebrow">Together with our families</p>
+
+    <h1>
+      <span id="groomName">Ram</span>
+      <em>&</em>
+      <span id="brideName">Sita</span>
+    </h1>
+
+    <p class="hero-subtitle">are getting married</p>
+    <div class="ornament" aria-hidden="true">──── ✺ ────</div>
+    <p id="invitationText" class="invitation-copy"></p>
+    <a href="#date" class="text-button">A little surprise awaits ↓</a>
+  </header>
+
+  <!-- PHOTO 1 -->
+  <section class="photo-section">
+    <figure class="photo arch" data-photo="0">
+      <div class="photo-placeholder">
+        <span aria-hidden="true">♡</span>
+        <p>Your favourite moment</p>
+        <small>Add your couple photo</small>
+      </div>
+    </figure>
+    <p class="photo-caption">
+      Every love story is beautiful.<br>
+      <em>Ours is our favourite.</em>
+    </p>
+  </section>
+
+  <!-- DATE REVEAL -->
+  <section id="date" class="date-section">
+    <p class="eyebrow">Save a little space in your heart</p>
+    <h2>A date to remember</h2>
+    <p class="section-copy">
+      Scratch the golden card to discover our wedding day.
+    </p>
+
+    <div class="scratch-card">
+      <div class="date-content">
+        <span id="dateWeekday"></span>
+        <strong id="dateDay"></strong>
+        <span id="dateMonth"></span>
+        <small id="dateTime"></small>
+      </div>
+      <canvas
+        id="scratchCanvas"
+        aria-label="Scratch to reveal the wedding date"
+      ></canvas>
+    </div>
+
+    <button id="revealButton" class="text-button">
+      Reveal the date instead
+    </button>
+
+    <p id="revealStatus" class="small" role="status">
+      A touch of magic, a shower of flowers.
+    </p>
+
+    <!-- LIVE COUNTDOWN -->
+    <div class="countdown-wrapper">
+      <p id="countdownTitle" class="eyebrow">Our forever begins in</p>
+      <div class="countdown">
+        <div><b id="days">00</b><span>Days</span></div>
+        <div><b id="hours">00</b><span>Hours</span></div>
+        <div><b id="minutes">00</b><span>Minutes</span></div>
+        <div><b id="seconds">00</b><span>Seconds</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT SCHEDULE -->
+  <section id="events">
+    <p class="eyebrow">Love, laughter & a little dancing</p>
+    <h2>The celebrations</h2>
+    <p class="section-copy">
+      Come for the moments. Stay for the memories.
+    </p>
+    <div id="eventList" class="timeline"></div>
+  </section>
+
+  <!-- PHOTO 2 -->
+  <section class="photo-section">
+    <figure class="photo" data-photo="1">
+      <div class="photo-placeholder">
+        <span aria-hidden="true">❦</span>
+        <p>A chapter of us</p>
+        <small>Add your engagement or family photo</small>
+      </div>
+    </figure>
+  </section>
+
+  <!-- VENUE -->
+  <section id="venue" class="venue-section">
+    <p class="eyebrow">Where our story begins</p>
+    <h2>Meet us here</h2>
+    <div class="venue-art" aria-hidden="true">⌂</div>
+    <h3 id="venueName"></h3>
+    <p id="venueCity" class="section-copy"></p>
+
+    <a
+      id="mapsLink"
+      class="button"
+      target="_blank"
+      rel="noopener"
+    >Open in Google Maps ↗</a>
+
+    <p id="venueNote" class="section-copy"></p>
+  </section>
+
+  <!-- PHOTO 3 -->
+  <section class="photo-section">
+    <figure class="photo" data-photo="2">
+      <div class="photo-placeholder">
+        <span aria-hidden="true">✿</span>
+        <p>Surrounded by love</p>
+        <small>Add another memory here</small>
+      </div>
+    </figure>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="rsvp-section">
+    <p class="eyebrow">Your presence is our present</p>
+    <h2>Will you join us?</h2>
+    <p id="rsvpMessage" class="section-copy"></p>
+
+    <form id="rsvpForm">
+      <label>
+        Your name
+        <input
+          name="guest"
+          required
+          maxlength="100"
+          placeholder="Full name"
+          autocomplete="name"
+        >
+      </label>
+
+      <div class="form-row">
+        <label>
+          Attendance
+          <select name="attendance">
+            <option>Joyfully attending</option>
+            <option>Unable to attend</option>
+          </select>
+        </label>
+
+        <label>
+          Number of guests
+          <input
+            name="count"
+            type="number"
+            min="1"
+            max="50"
+            value="1"
+            required
+          >
+        </label>
+      </div>
+
+      <label>
+        A little note
+        <textarea
+          name="message"
+          rows="3"
+          maxlength="1000"
+          placeholder="Your wishes or dietary preferences"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="button">
+        Send RSVP via WhatsApp ↗
+      </button>
+
+      <p id="rsvpStatus" class="small" role="status"></p>
+    </form>
+  </section>
+
+  <!-- CONTACTS -->
+  <footer>
+    <div class="ornament" aria-hidden="true">❧ ✺ ❧</div>
+    <h2>With love, <span id="footerNames"></span></h2>
+    <p>We cannot wait to celebrate with you.</p>
+
+    <div class="contacts">
+      <span id="contactName"></span>
+      <a id="contactPhone"></a>
+      <a id="contactWhatsApp" target="_blank" rel="noopener">
+        Message on WhatsApp
+      </a>
+    </div>
+
+    <p class="small">Made for a lifetime of memories</p>
+  </footer>
+
+</main>
+
+<script>
+/* ======================================================
+   EDIT YOUR WEDDING DETAILS HERE
+
+   Dates:
+   Use YYYY-MM-DDTHH:MM:SS+05:30 for India Standard Time.
+
+   Photos:
+   Upload pictures to an "assets" folder in your repository.
+   Example: "assets/couple.jpg"
+
+   WhatsApp:
+   Enter country code and number, without spaces.
+   Leave empty until you have the correct recipient.
+   ====================================================== */
+
+const CONFIG = {
+  groom: "Ram",
+  bride: "Sita",
+
+  // October 30, 2026 at 4:30 AM IST.
+  weddingDate: "2026-10-30T04:30:00+05:30",
+
+  invitation:
+    "With the blessings of our families, we invite you to " +
+    "celebrate the beginning of our forever.",
+
+  venue: "Wedding venue — to be announced",
+  city: "Madanapalli",
+  venueNote: "The exact venue will be shared soon.",
+
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Madanapalli",
+
+  contactName: "Wedding family",
+
+  // Example format: "+1XXXXXXXXXX" or "+91XXXXXXXXXX".
+  contactPhone: "",
+
+  // Example format: "91XXXXXXXXXX".
+  // RSVP messages will be sent to this number.
+  whatsapp: "",
+
+  rsvpMessage: "Please respond before the wedding.",
+
+  photos: [
+    "", // Photo 1: "assets/couple.jpg"
+    "", // Photo 2: "assets/engagement.jpg"
+    ""  // Photo 3: "assets/family.jpg"
+  ],
+
+  // These pre-wedding event times are samples.
+  // Change the dates, times, and notes when confirmed.
+  events: [
+    {
+      name: "Mehendi",
+      date: "2026-10-28T16:00:00+05:30",
+      note: "Sample time — update when confirmed.",
+      icon: "❋"
+    },
+    {
+      name: "Engagement",
+      date: "2026-10-29T10:00:00+05:30",
+      note: "Sample time — update when confirmed.",
+      icon: "◇"
+    },
+    {
+      name: "Sangeet",
+      date: "2026-10-29T18:00:00+05:30",
+      note: "Sample time — update when confirmed.",
+      icon: "♫"
+    },
+    {
+      name: "Wedding",
+
+      // Leave blank to automatically use weddingDate.
+      date: "",
+      note: "Join us for our auspicious wedding ceremony.",
+      icon: "✺"
+    }
+  ]
+};
+
+/* ======================================================
+   WEBSITE LOGIC — NO EDITS NEEDED BELOW
+   ====================================================== */
+
+const $ = id => document.getElementById(id);
+
+const text = (id, value) => {
+  $(id).textContent = value;
+};
+
+const reducedMotion =
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const formatDate = (date, options) =>
+  new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    ...options
+  }).format(new Date(date));
+
+const digits = value =>
+  String(value || "").replace(/\D/g, "");
+
+function safeUrl(value) {
+  try {
+    const url = new URL(value, window.location.href);
+
+    if (["https:", "http:", "file:"].includes(url.protocol)) {
+      return url.href;
+    }
+  } catch {}
+
+  return "";
+}
+
+/* POPULATE CONTENT */
+
+document.title =
+  `${CONFIG.groom} & ${CONFIG.bride} | Wedding Invitation`;
+
+const initials =
+  `${CONFIG.groom.charAt(0)} & ${CONFIG.bride.charAt(0)}`;
+
+text("groomName", CONFIG.groom);
+text("brideName", CONFIG.bride);
+text("doorInitials", initials);
+text("navInitials", initials);
+text("invitationText", CONFIG.invitation);
+text("footerNames", `${CONFIG.groom} & ${CONFIG.bride}`);
+
+text(
+  "dateWeekday",
+  formatDate(CONFIG.weddingDate, { weekday: "long" })
+);
+
+text(
+  "dateDay",
+  formatDate(CONFIG.weddingDate, { day: "2-digit" })
+);
+
+text(
+  "dateMonth",
+  formatDate(CONFIG.weddingDate, {
+    month: "long",
+    year: "numeric"
+  })
+);
+
+text(
+  "dateTime",
+  formatDate(CONFIG.weddingDate, {
+    hour: "numeric",
+    minute: "2-digit"
+  }) + " IST"
+);
+
+text("venueName", CONFIG.venue);
+text("venueCity", CONFIG.city);
+text("venueNote", CONFIG.venueNote);
+text("rsvpMessage", CONFIG.rsvpMessage);
+text("contactName", CONFIG.contactName);
+
+$("mapsLink").href =
+  safeUrl(CONFIG.mapsUrl) ||
+  "https://www.google.com/maps";
+
+/* CONTACT LINKS */
+
+const phone = digits(CONFIG.contactPhone);
+const whatsapp = digits(CONFIG.whatsapp);
+
+if (phone) {
+  text("contactPhone", CONFIG.contactPhone);
+  $("contactPhone").href = "tel:+" + phone;
+} else {
+  text("contactPhone", "+1 … (contact to be updated)");
+  $("contactPhone").removeAttribute("href");
+}
+
+if (whatsapp) {
+  $("contactWhatsApp").href = "https://wa.me/" + whatsapp;
+  text(
+    "rsvpStatus",
+    "Your response opens in WhatsApp. Tap Send there to confirm."
+  );
+} else {
+  $("contactWhatsApp").hidden = true;
+  text(
+    "rsvpStatus",
+    "RSVP opens once the family adds a WhatsApp number."
+  );
+}
+
+/* PHOTOS */
+
+document.querySelectorAll("[data-photo]").forEach(figure => {
+  const index = Number(figure.dataset.photo);
+  const source = CONFIG.photos[index];
+
+  if (!source || !safeUrl(source)) return;
+
+  const image = new Image();
+
+  image.alt =
+    `${CONFIG.groom} and ${CONFIG.bride} — wedding memory`;
+
+  image.loading = "lazy";
+
+  image.onload = () => {
+    figure.querySelector(".photo-placeholder").style.display = "none";
+  };
+
+  image.onerror = () => {
+    image.remove();
+  };
+
+  image.src = safeUrl(source);
+  figure.appendChild(image);
+});
+
+/* EVENT SCHEDULE */
+
+CONFIG.events.forEach(event => {
+  const date = event.date || CONFIG.weddingDate;
+
+  const article = document.createElement("article");
+  article.className = "event";
+
+  const icon = document.createElement("div");
+  icon.className = "event-icon";
+  icon.textContent = event.icon || "✺";
+  icon.setAttribute("aria-hidden", "true");
+
+  const content = document.createElement("div");
+
+  const heading = document.createElement("h3");
+  heading.textContent = event.name;
+
+  const time = document.createElement("time");
+  time.dateTime = date;
+
+  time.textContent =
+    formatDate(date, {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    }) + " IST";
+
+  const note = document.createElement("p");
+  note.textContent = event.note || "";
+
+  content.append(heading, time, note);
+  article.append(icon, content);
+  $("eventList").appendChild(article);
+});
+
+/* TEMPLE DOOR ANIMATION */
+
+let doorsOpened = false;
+
+$("doorButton").addEventListener("click", () => {
+  if (doorsOpened) return;
+
+  doorsOpened = true;
+  $("entrance").classList.add("open");
+
+  window.setTimeout(() => {
+    $("entrance").classList.add("hidden");
+    $("invitation").inert = false;
+    document.body.classList.remove("locked");
+    $("navInitials").focus();
+  }, reducedMotion ? 0 : 1600);
+});
+
+/* LIVE COUNTDOWN */
+
+function updateCountdown() {
+  const remaining = Math.max(
+    0,
+    new Date(CONFIG.weddingDate).getTime() - Date.now()
+  );
+
+  const totalSeconds = Math.floor(remaining / 1000);
+
+  const values = {
+    days: Math.floor(totalSeconds / 86400),
+    hours: Math.floor(totalSeconds / 3600) % 24,
+    minutes: Math.floor(totalSeconds / 60) % 60,
+    seconds: totalSeconds % 60
+  };
+
+  Object.entries(values).forEach(([id, value]) => {
+    text(id, String(value).padStart(2, "0"));
+  });
+
+  text(
+    "countdownTitle",
+    remaining > 0
+      ? "Our forever begins in"
+      : "Our forever has begun"
+  );
+}
+
+updateCountdown();
+window.setInterval(updateCountdown, 1000);
+
+/* SCRATCH-TO-REVEAL CARD */
+
+const canvas = $("scratchCanvas");
+const context = canvas.getContext("2d", {
+  willReadFrequently: true
+});
+
+let dateRevealed = false;
+let scratching = false;
+let previousPoint = null;
+let moveCount = 0;
+
+function paintScratchCard() {
+  if (dateRevealed) return;
+
+  const rectangle = canvas.getBoundingClientRect();
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = Math.round(rectangle.width * ratio);
+  canvas.height = Math.round(rectangle.height * ratio);
+
+  context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  context.globalCompositeOperation = "source-over";
+
+  const gradient = context.createLinearGradient(
+    0, 0, rectangle.width, rectangle.height
+  );
+
+  gradient.addColorStop(0, "#b18a53");
+  gradient.addColorStop(.45, "#e6c991");
+  gradient.addColorStop(1, "#a67b44");
+
+  context.fillStyle = gradient;
+  context.fillRect(
+    0, 0, rectangle.width, rectangle.height
+  );
+
+  context.textAlign = "center";
+  context.fillStyle = "#65472e";
+
+  context.font = "35px Georgia";
+  context.fillText("✺", rectangle.width / 2, 95);
+
+  context.font = "italic 23px Georgia";
+  context.fillText(
+    "Our wedding day",
+    rectangle.width / 2,
+    142
+  );
+
+  context.font = "11px Arial";
+  context.fillText(
+    "SCRATCH TO REVEAL",
+    rectangle.width / 2,
+    181
+  );
+}
+
+paintScratchCard();
+new ResizeObserver(paintScratchCard).observe(canvas);
+
+function getPoint(event) {
+  const rectangle = canvas.getBoundingClientRect();
+
+  return {
+    x: event.clientX - rectangle.left,
+    y: event.clientY - rectangle.top
+  };
+}
+
+function scratch(event) {
+  if (!scratching || dateRevealed) return;
+
+  const point = getPoint(event);
+
+  context.globalCompositeOperation = "destination-out";
+  context.lineWidth = 45;
+  context.lineCap = "round";
+
+  context.beginPath();
+
+  context.moveTo(
+    previousPoint ? previousPoint.x : point.x,
+    previousPoint ? previousPoint.y : point.y
+  );
+
+  context.lineTo(point.x, point.y);
+  context.stroke();
+
+  previousPoint = point;
+  moveCount++;
+
+  if (moveCount % 6 === 0) {
+    checkScratchCoverage();
+  }
+}
+
+function checkScratchCoverage() {
+  const pixels = context.getImageData(
+    0, 0, canvas.width, canvas.height
+  ).data;
+
+  let cleared = 0;
+  let sampled = 0;
+
+  for (let i = 3; i < pixels.length; i += 64) {
+    sampled++;
+
+    if (pixels[i] < 100) {
+      cleared++;
+    }
+  }
+
+  if (sampled && cleared / sampled > .38) {
+    revealDate();
+  }
+}
+
+canvas.addEventListener("pointerdown", event => {
+  if (dateRevealed) return;
+
+  scratching = true;
+  previousPoint = getPoint(event);
+
+  canvas.setPointerCapture(event.pointerId);
+  scratch(event);
+});
+
+canvas.addEventListener("pointermove", scratch);
+
+canvas.addEventListener("pointerup", () => {
+  scratching = false;
+  previousPoint = null;
+
+  if (!dateRevealed) {
+    checkScratchCoverage();
+  }
+});
+
+canvas.addEventListener("pointercancel", () => {
+  scratching = false;
+  previousPoint = null;
+});
+
+function revealDate() {
+  if (dateRevealed) return;
+
+  dateRevealed = true;
+  canvas.classList.add("revealed");
+  $("revealButton").hidden = true;
+
+  text(
+    "revealStatus",
+    "You’re invited! We look forward to celebrating with you."
+  );
+
+  showerFlowers();
+}
+
+$("revealButton").addEventListener("click", revealDate);
+
+/* FLOWER SHOWER */
+
+function showerFlowers() {
+  if (reducedMotion) return;
+
+  const colors = [
+    "#ca7d88",
+    "#e9b7b9",
+    "#cda268",
+    "#fff1d5"
+  ];
+
+  for (let i = 0; i < 80; i++) {
+    const petal = document.createElement("span");
+    petal.className = "petal";
+
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.background = colors[i % colors.length];
+
+    petal.style.setProperty(
+      "--drift",
+      Math.random() * 260 - 130 + "px"
+    );
+
+    petal.style.animationDuration =
+      4 + Math.random() * 4 + "s";
+
+    petal.style.animationDelay =
+      Math.random() * 1.4 + "s";
+
+    $("petals").appendChild(petal);
+
+    window.setTimeout(() => petal.remove(), 10000);
+  }
+}
+
+/* WHATSAPP RSVP */
+
+$("rsvpForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!whatsapp) {
+    text(
+      "rsvpStatus",
+      "The family has not added an RSVP number yet. " +
+      "Please check back soon."
+    );
+    return;
+  }
+
+  const data = new FormData(event.target);
+
+  const message = [
+    `Wedding RSVP for ${CONFIG.groom} & ${CONFIG.bride}`,
+    `Name: ${data.get("guest")}`,
+    `Attendance: ${data.get("attendance")}`,
+    `Guests: ${data.get("count")}`,
+    `Message: ${data.get("message")}`
+  ].join("\n");
+
+  const url =
+    "https://wa.me/" +
+    whatsapp +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener");
+
+  text(
+    "rsvpStatus",
+    "Please tap Send in WhatsApp to submit your response."
+  );
+});
+</script>
+
+</body>
+</html>
