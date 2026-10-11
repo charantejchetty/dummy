@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#35191a">
-<title>Ram & Sita — A Temple Wedding</title>
+<meta name="theme-color" content="#491925">
+<title>Ram & Sita | Wedding Invitation</title>
 
 <style>
 :root {
-  --gold: #d5ad70;
-  --cream: #fff6e5;
-  --wine: #541f2c;
-  --ink: #4a3030;
+  --wine: #491925;
+  --gold: #ae854c;
+  --cream: #fff9ee;
+  --ink: #492c31;
+  --muted: #846b65;
 }
 
 * { box-sizing: border-box; }
@@ -23,8 +24,8 @@ html {
 
 body {
   margin: 0;
-  background: #241719;
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -40,267 +41,10 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--gold);
-  outline-offset: 4px;
+  outline-offset: 5px;
 }
 
-/* FIXED TEMPLE WORLD */
-
-#temple {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  perspective: 900px;
-  perspective-origin: 50% 47%;
-  background:
-    radial-gradient(ellipse at 50% 45%, #ae774130, transparent 48%),
-    linear-gradient(#241719, #382223 55%, #241719);
-}
-
-.temple-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 50% 42%,
-    #f3c17738,
-    transparent 60%
-  );
-}
-
-.ceiling {
-  position: absolute;
-  inset: 0 0 52%;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 90px,
-      #bd936b18 91px 95px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      #322325 0 75px,
-      #5c4034 76px 81px
-    );
-  transform: rotateX(-65deg);
-  transform-origin: center top;
-}
-
-.floor {
-  position: absolute;
-  top: 53%;
-  left: -100%;
-  width: 300%;
-  height: 140%;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 115px,
-      #d2af7b20 116px 119px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      #3c2c2b 0 100px,
-      #ae835b40 101px 104px
-    );
-  transform: rotateX(65deg);
-  transform-origin: center top;
-}
-
-.sanctum {
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  width: 210px;
-  height: 290px;
-  transform: translate(-50%, -50%);
-  border: 9px double #a77e51;
-  border-radius: 110px 110px 0 0;
-  background: radial-gradient(ellipse, #f4bb6540, #382020 65%);
-  box-shadow: 0 0 90px #f4bb6520;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.sanctum-symbol {
-  font-size: 62px;
-  color: #ebc88e;
-  text-shadow: 0 0 30px #ffcf83;
-}
-
-.sanctum small {
-  margin-top: 18px;
-  letter-spacing: 5px;
-  color: #dcb884;
-  font-size: 11px;
-}
-
-/* REPEATING PILLARED FRAMES */
-
-.temple-frame {
-  position: absolute;
-  inset: 7% 10% 4%;
-  transform-style: preserve-3d;
-  will-change: transform, opacity;
-}
-
-.temple-beam {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 68px;
-  border: 6px double #a57c53;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #72543c 0 20px,
-      #8e6a46 21px 25px,
-      #4c382e 26px 48px
-    );
-  box-shadow: 0 16px 18px #0005;
-}
-
-.temple-beam::after {
-  content: "❧  ✺  ❧";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 28px;
-  letter-spacing: 12px;
-  color: #d2ad75;
-}
-
-.pillar {
-  position: absolute;
-  top: 65px;
-  bottom: 0;
-  width: 75px;
-  border: 3px solid #a57c53;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 65px,
-      #2b201b70 66px 72px
-    ),
-    linear-gradient(
-      90deg,
-      #49362c,
-      #a07a51 32%,
-      #795b3e 60%,
-      #392a25
-    );
-  box-shadow: 8px 0 15px #0004;
-}
-
-.pillar.left { left: 0; }
-.pillar.right { right: 0; }
-
-.pillar::before,
-.pillar::after {
-  content: "";
-  position: absolute;
-  left: -14px;
-  right: -14px;
-  height: 42px;
-  border: 4px double #b28b5b;
-  background: linear-gradient(#8a6744, #4a362a, #8a6744);
-}
-
-.pillar::before { top: 0; }
-.pillar::after { bottom: 0; }
-
-.pillar-carving {
-  position: absolute;
-  top: 35%;
-  width: 100%;
-  color: #cca56f;
-  text-align: center;
-  font-size: 40px;
-}
-
-.garland {
-  position: absolute;
-  top: 68px;
-  left: 12%;
-  right: 12%;
-  height: 42px;
-  border-bottom: 9px dotted #db9d38;
-  border-radius: 0 0 50% 50%;
-}
-
-/* FOREGROUND LAMPS */
-
-.lamp {
-  position: absolute;
-  bottom: 5%;
-  width: 55px;
-  height: 180px;
-  filter: drop-shadow(0 8px 8px #0008);
-}
-
-.lamp.left { left: 4%; }
-.lamp.right { right: 4%; }
-
-.lamp::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 23px;
-  width: 9px;
-  height: 150px;
-  background: linear-gradient(90deg, #7c542e, #ebc57c, #7c542e);
-}
-
-.lamp::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 55px;
-  height: 16px;
-  background: #b88e4d;
-  border-radius: 50%;
-}
-
-.lamp-bowl {
-  position: absolute;
-  top: 27px;
-  width: 55px;
-  height: 20px;
-  background: linear-gradient(#dfb872, #805a2e);
-  border-radius: 0 0 50% 50%;
-}
-
-.flame {
-  position: absolute;
-  top: 0;
-  left: 21px;
-  width: 15px;
-  height: 30px;
-  border-radius: 70% 30% 60% 40%;
-  background: linear-gradient(#fff7d1, #ffbd4e, #d16824);
-  box-shadow: 0 0 30px #ffd26a;
-  animation: flicker 2s infinite alternate;
-}
-
-@keyframes flicker {
-  to { transform: scale(.9) rotate(5deg); }
-}
-
-.vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 25%,
-    #160d1260 80%,
-    #160d12a0
-  );
-}
-
-/* ENTRANCE DOORS */
+/* TEMPLE ENTRANCE */
 
 #entrance {
   position: fixed;
@@ -310,47 +54,52 @@ textarea:focus-visible {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 22px;
-  background: radial-gradient(ellipse at top, #734131, #211417);
+  padding: 24px;
+  color: #efd4a3;
+  background: radial-gradient(ellipse at top, #793441, #260e15);
   transition: opacity .8s, visibility .8s;
 }
 
-#entrance.gone {
+#entrance.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
 .entrance-title {
+  font-size: 27px;
   text-align: center;
-  font-size: 26px;
-  color: #e4c392;
 }
 
 .entrance-title small {
   display: block;
   margin-top: 12px;
   font: 10px Arial, sans-serif;
-  letter-spacing: 3px;
   text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
-.doorway {
-  width: min(410px, 85vw);
-  height: min(58vh, 540px);
-  margin: 28px 0;
-  border: 9px double #bd945d;
-  border-radius: 170px 170px 0 0;
-  background: #edcd8f;
-  box-shadow: 0 0 0 8px #33211e, 0 0 0 10px #9c754b;
-}
-
-#openDoors {
+.temple-frame {
   position: relative;
+  width: min(410px, 85vw);
+  height: min(58vh, 550px);
+  margin: 30px 0;
+  border: 8px double #b88d52;
+  border-radius: 190px 190px 0 0;
+  background: #fff2ce;
+  box-shadow:
+    0 0 0 8px #35121c,
+    0 0 0 10px #ae854c,
+    0 25px 80px #0006;
+}
+
+#doorButton {
   width: 100%;
   height: 100%;
-  border: none;
-  background: none;
+  position: relative;
+  display: block;
+  border: 0;
+  background: transparent;
   perspective: 1100px;
   border-radius: inherit;
 }
@@ -360,63 +109,70 @@ textarea:focus-visible {
   top: 0;
   width: 50%;
   height: 100%;
-  border: 3px solid #bd945d;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #3c1e20,
-      #592c2b 18px,
-      #321719 22px
-    );
-  backface-visibility: hidden;
+  border: 3px solid #b88d52;
+  background: repeating-linear-gradient(
+    90deg, #431922, #57232e 18px, #38131d 22px
+  );
   overflow: hidden;
+  backface-visibility: hidden;
   transition: transform 1.6s ease;
 }
 
 .door.left {
   left: 0;
-  border-radius: 170px 0 0 0;
+  border-radius: 190px 0 0 0;
   transform-origin: left;
 }
 
 .door.right {
   right: 0;
-  border-radius: 0 170px 0 0;
+  border-radius: 0 190px 0 0;
   transform-origin: right;
 }
 
-.door::before {
-  content: "✺";
+.door .flower {
   position: absolute;
-  top: 30%;
+  top: 29%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 73px;
-  color: #c29a61;
+  color: #c59d62;
+  font-size: 75px;
+  text-shadow: 0 3px 4px #000;
 }
 
-.door::after {
-  content: "";
+.door .panel {
   position: absolute;
-  inset: 56% 15% 8%;
-  border: 6px double #b78c55;
-  border-radius: 65px 65px 0 0;
+  inset: 55% 14% 9%;
+  border: 6px double #b88d52;
+  border-radius: 70px 70px 0 0;
 }
+
+.door .handle {
+  position: absolute;
+  top: 58%;
+  width: 14px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #765126, #ebcf91, #765126);
+}
+
+.left .handle { right: 12%; }
+.right .handle { left: 12%; }
 
 .seal {
   position: absolute;
-  top: 55%;
   left: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
-  width: 75px;
-  height: 75px;
+  width: 76px;
+  height: 76px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #d7b37c;
-  box-shadow: 0 0 0 5px #ad8049, 0 0 0 8px #edcba3;
+  color: var(--wine);
   font-size: 21px;
-  color: #491925;
+  background: #d7b380;
+  box-shadow: 0 0 0 5px #b28451, 0 0 0 8px #edcba3;
   transition: opacity .3s;
 }
 
@@ -425,167 +181,156 @@ textarea:focus-visible {
 #entrance.open .seal { opacity: 0; }
 
 .tap-hint {
-  text-align: center;
   font: 11px Arial, sans-serif;
   letter-spacing: 2px;
-  color: #dfc193;
+  text-align: center;
 }
 
-/* NAVIGATION AND JOURNEY */
+.entrance-note {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* INVITATION */
+
+main { overflow: hidden; }
 
 nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 5vw;
-  background: linear-gradient(#241719ed, #24171900);
+  padding: 18px 6vw;
+  background: #fff9eef5;
+  border-bottom: 1px solid #ae854c40;
 }
 
 nav > a {
   font-size: 24px;
   text-decoration: none;
-  color: #e2c492;
 }
 
-nav div { display: flex; gap: 22px; }
-nav div a { font: 12px Arial, sans-serif; text-decoration: none; }
+nav div { display: flex; gap: 24px; }
+nav div a { font-size: 13px; text-decoration: none; }
 
-#progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  z-index: 25;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-main { position: relative; z-index: 2; }
-
-.chapter {
-  min-height: 115svh;
+.hero {
+  min-height: 720px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: 110px 24px 90px;
-}
-
-.chapter.photo-chapter { min-height: 105svh; }
-
-.card {
-  width: min(600px, 100%);
-  position: relative;
+  align-items: center;
+  padding: 65px 24px;
   text-align: center;
-  padding: 48px 32px;
-  background: #fff6e5f5;
-  color: var(--ink);
-  border: 1px solid #b98d58;
-  box-shadow: 0 25px 80px #0005;
+  background: radial-gradient(ellipse at center, #edddc780, transparent 75%);
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 1px solid #b98d5855;
-  pointer-events: none;
-}
-
-.hero-card {
-  background: #301b20dc;
-  color: var(--cream);
-  border-color: #c39a61;
+.flourish {
+  color: var(--gold);
+  font-size: 35px;
+  letter-spacing: 12px;
 }
 
 .eyebrow {
-  color: #aa7e42;
-  font: 10px/1.9 Arial, sans-serif;
-  letter-spacing: 3px;
+  font: 11px/1.8 Arial, sans-serif;
   text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
 }
 
-.hero-card .eyebrow { color: #d6b07a; }
-
 h1 {
-  font-size: clamp(60px, 9vw, 94px);
   font-weight: normal;
+  font-size: clamp(68px, 9vw, 115px);
   line-height: 1;
-  margin: 25px 0;
+  margin: 28px 0 12px;
 }
 
 h1 span { display: block; }
 
 h1 em {
   display: block;
-  font-size: 38px;
+  font-size: 45px;
+  margin: 16px;
   color: var(--gold);
-  margin: 14px;
+}
+
+.hero-subtitle { font-size: 20px; font-style: italic; }
+
+.invitation-copy {
+  max-width: 450px;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.ornament {
+  color: var(--gold);
+  letter-spacing: 5px;
+  margin: 15px;
+}
+
+.text-button {
+  background: none;
+  border: 0;
+  padding: 12px;
+  color: var(--wine);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  font-size: 14px;
+}
+
+section {
+  text-align: center;
+  padding: 75px 24px;
 }
 
 h2 {
-  font-size: clamp(31px, 5vw, 43px);
-  font-weight: normal;
+  font-size: clamp(34px, 5vw, 48px);
   font-style: italic;
-  margin: 15px 0 23px;
+  font-weight: normal;
+  margin: 16px 0 25px;
 }
 
-h3 { font-size: 24px; font-weight: normal; }
+h3 { font-size: 25px; font-weight: normal; }
 
-.copy {
-  font-size: 16px;
-  line-height: 1.9;
-  color: #7d625b;
+.section-copy {
+  color: var(--muted);
+  line-height: 1.8;
 }
 
-.hero-card .copy { color: #e6d4be; }
+/* PHOTO SECTIONS */
 
-.ornament {
-  color: #b88f59;
-  font-size: 26px;
-  letter-spacing: 9px;
-}
-
-.scroll-hint {
-  display: inline-block;
-  margin-top: 22px;
-  color: #e3c99f;
-  font: 11px/1.8 Arial, sans-serif;
-  letter-spacing: 2px;
-  text-decoration: none;
-}
-
-.scroll-hint span {
-  display: block;
-  font-size: 23px;
-  margin-top: 9px;
-}
-
-/* PHOTOS */
-
-.photo-card {
-  width: min(640px, 100%);
-  text-align: center;
+.photo-section {
+  max-width: 950px;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .photo {
   position: relative;
-  min-height: 470px;
-  overflow: hidden;
   margin: 0;
-  border: 7px solid #d4b17c;
-  outline: 1px solid #917047;
-  background: linear-gradient(140deg, #c8a878, #ead9bc, #c3a091);
-  box-shadow: 0 20px 75px #0007;
+  min-height: 410px;
+  overflow: hidden;
+  border: 1px solid #ae854c70;
+  background: linear-gradient(135deg, #e7d7bd, #f6eee0, #dbb7af);
 }
 
-.photo.arch { border-radius: 280px 280px 5px 5px; }
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid #ae854c80;
+  pointer-events: none;
+}
+
+.photo.arch {
+  max-width: 620px;
+  margin: auto;
+  min-height: 520px;
+  border-radius: 300px 300px 8px 8px;
+}
 
 .photo-placeholder {
   min-height: inherit;
@@ -594,20 +339,24 @@ h3 { font-size: 24px; font-weight: normal; }
   align-items: center;
   justify-content: center;
   padding: 25px;
-  color: #715640;
+  color: #896752;
 }
 
-.photo-placeholder span { font-size: 85px; }
+.photo-placeholder span {
+  font-size: 85px;
+  color: #b18f65;
+}
 
 .photo-placeholder p {
-  font-size: 25px;
+  font-size: 27px;
   font-style: italic;
+  margin: 16px 0;
 }
 
 .photo-placeholder small {
   font: 10px Arial, sans-serif;
-  letter-spacing: 2px;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .photo img {
@@ -618,25 +367,27 @@ h3 { font-size: 24px; font-weight: normal; }
   object-fit: cover;
 }
 
-.photo-caption {
-  font-size: 24px;
-  font-style: italic;
-  line-height: 1.7;
-  color: #f2dcc0;
-  text-shadow: 0 2px 10px #000;
-}
+.photo-caption { font-size: 23px; line-height: 1.8; }
+.photo-caption em { color: var(--gold); }
 
-/* SCRATCH DATE */
+/* SCRATCH CARD */
+
+.date-section {
+  background: #f3e8d8;
+  border-top: 1px solid #ae854c40;
+  border-bottom: 1px solid #ae854c40;
+}
 
 .scratch-card {
   position: relative;
-  width: min(340px, 100%);
-  height: 240px;
-  margin: 28px auto 12px;
+  width: min(360px, 100%);
+  height: 260px;
+  margin: 32px auto 12px;
+  border: 1px solid var(--gold);
+  border-radius: 140px 140px 12px 12px;
   overflow: hidden;
-  border: 1px solid #b48a54;
-  border-radius: 120px 120px 10px 10px;
   background: #fffaf1;
+  box-shadow: 0 10px 35px #49192512;
 }
 
 .date-content {
@@ -651,17 +402,10 @@ h3 { font-size: 24px; font-weight: normal; }
   letter-spacing: 2px;
 }
 
-.date-content strong {
-  font-size: 68px;
-  line-height: 1;
-}
+.date-content strong { font-size: 72px; line-height: 1; }
+.date-content small { font-size: 12px; letter-spacing: 1px; }
 
-.date-content small {
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-
-#scratch {
+#scratchCanvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -671,101 +415,121 @@ h3 { font-size: 24px; font-weight: normal; }
   transition: opacity .7s;
 }
 
-#scratch.revealed {
+#scratchCanvas.revealed {
   opacity: 0;
   pointer-events: none;
 }
 
-.text-button {
-  border: 0;
-  background: none;
-  color: var(--wine);
-  padding: 12px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  font-size: 13px;
-}
+.small { font: 12px/1.8 Arial, sans-serif; color: var(--muted); }
 
-.small {
-  color: #80665f;
-  font: 12px/1.8 Arial, sans-serif;
-}
+/* COUNTDOWN */
+
+.countdown-wrapper { margin-top: 50px; }
 
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 14px;
 }
 
 .countdown div {
-  min-width: 65px;
-  padding: 16px 6px;
-  border-top: 1px solid #b58b55;
-  border-bottom: 1px solid #b58b55;
+  min-width: 76px;
+  padding: 20px 8px;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
 
 .countdown b {
   display: block;
+  font-size: 38px;
   font-weight: normal;
-  font-size: 33px;
 }
 
 .countdown span {
   display: block;
-  margin-top: 8px;
-  font: 8px Arial, sans-serif;
+  margin-top: 10px;
+  font: 9px Arial, sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 /* EVENTS */
 
-.timeline { margin-top: 30px; text-align: left; }
+.timeline {
+  max-width: 620px;
+  margin: 45px auto 0;
+  text-align: left;
+}
 
 .event {
+  position: relative;
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 17px;
-  padding: 20px 0;
-  border-bottom: 1px solid #b58b5535;
+  grid-template-columns: 65px 1fr;
+  gap: 22px;
+  padding-bottom: 35px;
 }
 
-.event:last-child { border-bottom: 0; }
+.event:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 65px;
+  bottom: 0;
+  width: 1px;
+  background: #ae854c65;
+}
 
 .event-icon {
-  color: #a57b43;
-  font-size: 30px;
-  padding-top: 5px;
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ae854c80;
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 29px;
 }
 
-.event h3 { margin: 0 0 9px; }
-.event time { font-size: 13px; color: #98703c; }
-.event p { font-size: 13px; line-height: 1.7; color: #82675e; }
+.event h3 { margin: 4px 0 10px; }
+.event time { color: var(--gold); font-size: 14px; }
+.event p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 
-/* VENUE AND RSVP */
+/* VENUE */
 
-.venue-symbol {
-  font-size: 75px;
-  color: #a97d44;
+.venue-section { background: var(--wine); color: var(--cream); }
+.venue-section .section-copy { color: #ddc9bc; }
+
+.venue-art {
+  color: #cba26b;
+  font-size: 95px;
+  margin: 15px 0;
 }
 
 .button {
   display: inline-block;
-  padding: 16px 23px;
+  padding: 16px 25px;
   border: 1px solid var(--wine);
   background: var(--wine);
-  color: #fff6e5;
-  font: 11px Arial, sans-serif;
+  color: #fff8e9;
+  font: 12px Arial, sans-serif;
   letter-spacing: 1px;
   text-decoration: none;
 }
 
+.venue-section .button {
+  margin: 20px 0;
+  background: #ead5b5;
+  color: var(--wine);
+}
+
+/* RSVP */
+
+.rsvp-section { max-width: 620px; margin: auto; }
 form { text-align: left; }
 
 label {
   display: block;
-  margin: 18px 0;
+  margin: 20px 0;
   font: 12px/1.6 Arial, sans-serif;
 }
 
@@ -773,11 +537,11 @@ input, select, textarea {
   display: block;
   width: 100%;
   min-width: 0;
-  margin-top: 7px;
-  padding: 12px;
+  margin-top: 8px;
+  padding: 13px;
   border: 1px solid #bda58a;
   border-radius: 0;
-  background: #fffdf6;
+  background: #fffdf7;
   color: var(--ink);
 }
 
@@ -786,29 +550,28 @@ textarea { resize: vertical; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 18px;
 }
 
-form .button { width: 100%; }
+form .button { width: 100%; margin-top: 10px; }
+
+/* FOOTER AND FLOWERS */
+
+footer {
+  padding: 60px 24px;
+  text-align: center;
+  background: #f3e8d8;
+}
+
+footer h2 { font-size: 30px; }
 
 .contacts {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin: 26px 0;
+  margin: 30px 0;
   font-size: 14px;
 }
-
-footer {
-  position: relative;
-  z-index: 2;
-  padding: 25px 24px 45px;
-  text-align: center;
-  color: #d4b88d;
-  font: 11px Arial, sans-serif;
-}
-
-/* FLOWER SHOWER */
 
 #petals {
   position: fixed;
@@ -824,42 +587,36 @@ footer {
   width: 13px;
   height: 22px;
   border-radius: 90% 5% 80% 10%;
-  animation: petalFall linear forwards;
+  animation: fall linear forwards;
 }
 
-@keyframes petalFall {
+@keyframes fall {
   to {
-    transform: translate3d(var(--drift), 110vh, 0) rotate(700deg);
+    transform: translate3d(var(--drift), 110vh, 0) rotate(680deg);
   }
 }
 
 @media (max-width: 600px) {
-  #temple { perspective: 650px; }
-  .temple-frame { inset: 9% 5% 5%; }
-  .pillar { width: 45px; }
-  .pillar-carving { font-size: 27px; }
-  .temple-beam { height: 50px; }
-  .temple-beam::after { font-size: 21px; }
-  .pillar { top: 48px; }
-  .garland { top: 50px; }
-  .lamp { transform: scale(.7); transform-origin: bottom; }
-  nav { padding: 18px 22px; }
-  nav div { gap: 15px; }
-  nav div a { font-size: 11px; }
-  .chapter { padding: 95px 22px 75px; }
-  .card { padding: 35px 22px; }
-  .photo { min-height: 380px; }
+  nav { padding: 17px 22px; }
+  nav div { gap: 16px; }
+  nav div a { font-size: 12px; }
+  .hero { min-height: 670px; }
+  section { padding: 60px 22px; }
+  .photo-section { padding: 20px 25px 35px; }
+  .photo { min-height: 310px; }
+  .photo.arch { min-height: 420px; }
+  .photo-placeholder p { font-size: 23px; }
   .photo-caption { font-size: 20px; }
-  .countdown { gap: 6px; }
-  .countdown div { min-width: 54px; }
-  .countdown b { font-size: 27px; }
-  .copy { font-size: 15px; }
+  .countdown { gap: 8px; }
+  .countdown div { min-width: 62px; }
+  .countdown b { font-size: 30px; }
+  .form-row { gap: 10px; }
+  .event { gap: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .door, #entrance, .seal, #scratch { transition: none; }
-  .flame, .petal { animation: none; }
+  .door, #entrance, .seal, #scratchCanvas { transition: none; }
   .petal { display: none; }
 }
 </style>
@@ -867,58 +624,41 @@ footer {
 
 <body class="locked">
 
-<!-- TEMPLE BACKGROUND -->
-<div id="temple" aria-hidden="true">
-  <div class="temple-glow"></div>
-  <div class="ceiling"></div>
-  <div class="floor" id="floor"></div>
-
-  <div class="sanctum">
-    <span class="sanctum-symbol">✺</span>
-    <small>शुभ विवाह</small>
-  </div>
-
-  <div id="templeFrames"></div>
-
-  <div class="lamp left">
-    <span class="flame"></span>
-    <span class="lamp-bowl"></span>
-  </div>
-
-  <div class="lamp right">
-    <span class="flame"></span>
-    <span class="lamp-bowl"></span>
-  </div>
-
-  <div class="vignette"></div>
-</div>
-
 <div id="petals" aria-hidden="true"></div>
 
-<!-- OPENING DOORS -->
+<!-- OPENING TEMPLE DOORS -->
 <div id="entrance">
   <div class="entrance-title">
     शुभ विवाह
-    <small>A journey into our forever</small>
+    <small>A celebration of love</small>
   </div>
 
-  <div class="doorway">
-    <button id="openDoors" aria-label="Open the temple doors">
-      <span class="door left" aria-hidden="true"></span>
-      <span class="door right" aria-hidden="true"></span>
+  <div class="temple-frame">
+    <button id="doorButton" aria-label="Open the temple doors">
+      <span class="door left" aria-hidden="true">
+        <span class="flower">✺</span>
+        <span class="panel"></span>
+        <span class="handle"></span>
+      </span>
+
+      <span class="door right" aria-hidden="true">
+        <span class="flower">✺</span>
+        <span class="panel"></span>
+        <span class="handle"></span>
+      </span>
+
       <span class="seal" id="doorInitials">R & S</span>
     </button>
   </div>
 
   <p class="tap-hint">TAP THE DOORS TO ENTER ✧</p>
+  <p class="entrance-note">Two hearts. One beautiful beginning.</p>
 </div>
 
-<div id="progress" aria-hidden="true"></div>
-
-<main id="journey" inert>
+<main id="invitation" inert>
 
   <nav>
-    <a href="#welcome" id="navInitials">R & S</a>
+    <a href="#home" id="navInitials">R & S</a>
     <div>
       <a href="#events">Events</a>
       <a href="#venue">Venue</a>
@@ -926,77 +666,70 @@ footer {
     </div>
   </nav>
 
-  <!-- CHAPTER 1 -->
-  <section id="welcome" class="chapter">
-    <div class="card hero-card">
-      <div class="ornament" aria-hidden="true">❧ ✺ ❧</div>
-      <p class="eyebrow">Together with our families</p>
+  <!-- COUPLE INTRODUCTION -->
+  <header id="home" class="hero">
+    <div class="flourish" aria-hidden="true">❧ ✿ ❦ ✿ ❧</div>
+    <p class="eyebrow">Together with our families</p>
 
-      <h1>
-        <span id="groomName">Ram</span>
-        <em>&</em>
-        <span id="brideName">Sita</span>
-      </h1>
+    <h1>
+      <span id="groomName">Ram</span>
+      <em>&</em>
+      <span id="brideName">Sita</span>
+    </h1>
 
-      <p class="copy">are getting married</p>
-      <p class="copy" id="invitationText"></p>
+    <p class="hero-subtitle">are getting married</p>
+    <div class="ornament" aria-hidden="true">──── ✺ ────</div>
+    <p id="invitationText" class="invitation-copy"></p>
+    <a href="#date" class="text-button">A little surprise awaits ↓</a>
+  </header>
 
-      <a href="#photoOne" class="scroll-hint">
-        SCROLL TO WALK WITH US
-        <span>↓</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- CHAPTER 2 -->
-  <section id="photoOne" class="chapter photo-chapter">
-    <div class="photo-card">
-      <figure class="photo arch" data-photo="0">
-        <div class="photo-placeholder">
-          <span aria-hidden="true">♡</span>
-          <p>Your favourite moment</p>
-          <small>Add your couple photo</small>
-        </div>
-      </figure>
-
-      <p class="photo-caption">
-        Every love story is beautiful.<br>
-        Ours is our favourite.
-      </p>
-    </div>
-  </section>
-
-  <!-- CHAPTER 3 -->
-  <section id="date" class="chapter">
-    <div class="card">
-      <p class="eyebrow">A little surprise in the mandapam</p>
-      <h2>A date to remember</h2>
-      <p class="copy">Scratch the golden card to reveal our wedding day.</p>
-
-      <div class="scratch-card">
-        <div class="date-content">
-          <span id="dateWeekday"></span>
-          <strong id="dateDay"></strong>
-          <span id="dateMonth"></span>
-          <small id="dateTime"></small>
-        </div>
-
-        <canvas
-          id="scratch"
-          aria-label="Scratch to reveal the wedding date"
-        ></canvas>
+  <!-- PHOTO 1 -->
+  <section class="photo-section">
+    <figure class="photo arch" data-photo="0">
+      <div class="photo-placeholder">
+        <span aria-hidden="true">♡</span>
+        <p>Your favourite moment</p>
+        <small>Add your couple photo</small>
       </div>
+    </figure>
+    <p class="photo-caption">
+      Every love story is beautiful.<br>
+      <em>Ours is our favourite.</em>
+    </p>
+  </section>
 
-      <button id="revealButton" class="text-button">
-        Reveal the date instead
-      </button>
+  <!-- DATE REVEAL -->
+  <section id="date" class="date-section">
+    <p class="eyebrow">Save a little space in your heart</p>
+    <h2>A date to remember</h2>
+    <p class="section-copy">
+      Scratch the golden card to discover our wedding day.
+    </p>
 
-      <p id="revealStatus" class="small" role="status">
-        A touch of magic, a shower of flowers.
-      </p>
+    <div class="scratch-card">
+      <div class="date-content">
+        <span id="dateWeekday"></span>
+        <strong id="dateDay"></strong>
+        <span id="dateMonth"></span>
+        <small id="dateTime"></small>
+      </div>
+      <canvas
+        id="scratchCanvas"
+        aria-label="Scratch to reveal the wedding date"
+      ></canvas>
+    </div>
 
-      <p class="eyebrow" id="countdownTitle">Our forever begins in</p>
+    <button id="revealButton" class="text-button">
+      Reveal the date instead
+    </button>
 
+    <p id="revealStatus" class="small" role="status">
+      A touch of magic, a shower of flowers.
+    </p>
+
+    <!-- LIVE COUNTDOWN -->
+    <div class="countdown-wrapper">
+      <p id="countdownTitle" class="eyebrow">Our forever begins in</p>
       <div class="countdown">
         <div><b id="days">00</b><span>Days</span></div>
         <div><b id="hours">00</b><span>Hours</span></div>
@@ -1006,171 +739,159 @@ footer {
     </div>
   </section>
 
-  <!-- CHAPTER 4 -->
-  <section id="events" class="chapter">
-    <div class="card">
-      <p class="eyebrow">Love, laughter & a little dancing</p>
-      <h2>The celebrations</h2>
-      <div class="ornament" aria-hidden="true">❧ ✺ ❧</div>
-      <div class="timeline" id="eventList"></div>
-    </div>
+  <!-- EVENT SCHEDULE -->
+  <section id="events">
+    <p class="eyebrow">Love, laughter & a little dancing</p>
+    <h2>The celebrations</h2>
+    <p class="section-copy">
+      Come for the moments. Stay for the memories.
+    </p>
+    <div id="eventList" class="timeline"></div>
   </section>
 
-  <!-- CHAPTER 5 -->
-  <section class="chapter photo-chapter">
-    <div class="photo-card">
-      <figure class="photo" data-photo="1">
-        <div class="photo-placeholder">
-          <span aria-hidden="true">❦</span>
-          <p>A chapter of us</p>
-          <small>Add an engagement or family photo</small>
-        </div>
-      </figure>
-
-      <p class="photo-caption">
-        A lifetime of moments begins with this one.
-      </p>
-    </div>
+  <!-- PHOTO 2 -->
+  <section class="photo-section">
+    <figure class="photo" data-photo="1">
+      <div class="photo-placeholder">
+        <span aria-hidden="true">❦</span>
+        <p>A chapter of us</p>
+        <small>Add your engagement or family photo</small>
+      </div>
+    </figure>
   </section>
 
-  <!-- CHAPTER 6 -->
-  <section id="venue" class="chapter">
-    <div class="card">
-      <p class="eyebrow">Where our story begins</p>
-      <h2>Meet us here</h2>
-      <div class="venue-symbol" aria-hidden="true">⌂</div>
+  <!-- VENUE -->
+  <section id="venue" class="venue-section">
+    <p class="eyebrow">Where our story begins</p>
+    <h2>Meet us here</h2>
+    <div class="venue-art" aria-hidden="true">⌂</div>
+    <h3 id="venueName"></h3>
+    <p id="venueCity" class="section-copy"></p>
 
-      <h3 id="venueName"></h3>
-      <p class="copy" id="venueCity"></p>
-      <p class="small" id="venueNote"></p>
+    <a
+      id="mapsLink"
+      class="button"
+      target="_blank"
+      rel="noopener"
+    >Open in Google Maps ↗</a>
 
-      <a
-        id="mapsLink"
-        class="button"
-        target="_blank"
-        rel="noopener"
-      >Open in Google Maps ↗</a>
-    </div>
+    <p id="venueNote" class="section-copy"></p>
   </section>
 
-  <!-- CHAPTER 7 -->
-  <section class="chapter photo-chapter">
-    <div class="photo-card">
-      <figure class="photo arch" data-photo="2">
-        <div class="photo-placeholder">
-          <span aria-hidden="true">✿</span>
-          <p>Surrounded by love</p>
-          <small>Add another memory here</small>
-        </div>
-      </figure>
-
-      <p class="photo-caption">
-        Your blessings make our celebration complete.
-      </p>
-    </div>
+  <!-- PHOTO 3 -->
+  <section class="photo-section">
+    <figure class="photo" data-photo="2">
+      <div class="photo-placeholder">
+        <span aria-hidden="true">✿</span>
+        <p>Surrounded by love</p>
+        <small>Add another memory here</small>
+      </div>
+    </figure>
   </section>
 
-  <!-- CHAPTER 8 -->
-  <section id="rsvp" class="chapter">
-    <div class="card">
-      <p class="eyebrow">Your presence is our present</p>
-      <h2>Will you join us?</h2>
-      <p class="copy" id="rsvpMessage"></p>
+  <!-- RSVP -->
+  <section id="rsvp" class="rsvp-section">
+    <p class="eyebrow">Your presence is our present</p>
+    <h2>Will you join us?</h2>
+    <p id="rsvpMessage" class="section-copy"></p>
 
-      <form id="rsvpForm">
+    <form id="rsvpForm">
+      <label>
+        Your name
+        <input
+          name="guest"
+          required
+          maxlength="100"
+          placeholder="Full name"
+          autocomplete="name"
+        >
+      </label>
+
+      <div class="form-row">
         <label>
-          Your name
+          Attendance
+          <select name="attendance">
+            <option>Joyfully attending</option>
+            <option>Unable to attend</option>
+          </select>
+        </label>
+
+        <label>
+          Number of guests
           <input
-            name="guest"
-            placeholder="Full name"
+            name="count"
+            type="number"
+            min="1"
+            max="50"
+            value="1"
             required
-            maxlength="100"
-            autocomplete="name"
           >
         </label>
-
-        <div class="form-row">
-          <label>
-            Attendance
-            <select name="attendance">
-              <option>Joyfully attending</option>
-              <option>Unable to attend</option>
-            </select>
-          </label>
-
-          <label>
-            Number of guests
-            <input
-              name="count"
-              type="number"
-              min="1"
-              max="50"
-              value="1"
-              required
-            >
-          </label>
-        </div>
-
-        <label>
-          A little note
-          <textarea
-            name="message"
-            rows="3"
-            maxlength="1000"
-            placeholder="Your wishes or dietary preferences"
-          ></textarea>
-        </label>
-
-        <button type="submit" class="button">
-          Send RSVP via WhatsApp ↗
-        </button>
-
-        <p class="small" id="rsvpStatus" role="status"></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- CHAPTER 9 -->
-  <section id="contact" class="chapter">
-    <div class="card">
-      <div class="ornament" aria-hidden="true">❧ ✺ ❧</div>
-      <p class="eyebrow">At the end of this walk, a new beginning</p>
-      <h2>With love,<br><span id="footerNames"></span></h2>
-      <p class="copy">We cannot wait to celebrate with you.</p>
-
-      <div class="contacts">
-        <span id="contactName"></span>
-        <a id="contactPhone"></a>
-        <a
-          id="contactWhatsApp"
-          target="_blank"
-          rel="noopener"
-        >Message on WhatsApp</a>
       </div>
 
-      <a href="#welcome" class="text-button">Walk back to the beginning ↑</a>
-    </div>
+      <label>
+        A little note
+        <textarea
+          name="message"
+          rows="3"
+          maxlength="1000"
+          placeholder="Your wishes or dietary preferences"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="button">
+        Send RSVP via WhatsApp ↗
+      </button>
+
+      <p id="rsvpStatus" class="small" role="status"></p>
+    </form>
   </section>
+
+  <!-- CONTACTS -->
+  <footer>
+    <div class="ornament" aria-hidden="true">❧ ✺ ❧</div>
+    <h2>With love, <span id="footerNames"></span></h2>
+    <p>We cannot wait to celebrate with you.</p>
+
+    <div class="contacts">
+      <span id="contactName"></span>
+      <a id="contactPhone"></a>
+      <a id="contactWhatsApp" target="_blank" rel="noopener">
+        Message on WhatsApp
+      </a>
+    </div>
+
+    <p class="small">Made for a lifetime of memories</p>
+  </footer>
 
 </main>
 
-<footer>A beautiful journey. A lifetime together.</footer>
-
 <script>
 /* ======================================================
-   EDIT YOUR DETAILS HERE
+   EDIT YOUR WEDDING DETAILS HERE
+
+   Dates:
+   Use YYYY-MM-DDTHH:MM:SS+05:30 for India Standard Time.
+
+   Photos:
+   Upload pictures to an "assets" folder in your repository.
+   Example: "assets/couple.jpg"
+
+   WhatsApp:
+   Enter country code and number, without spaces.
+   Leave empty until you have the correct recipient.
    ====================================================== */
 
 const CONFIG = {
   groom: "Ram",
   bride: "Sita",
 
-  // October 30, 2026, at 4:30 AM IST.
+  // October 30, 2026 at 4:30 AM IST.
   weddingDate: "2026-10-30T04:30:00+05:30",
 
   invitation:
-    "With the blessings of our families, we invite you " +
-    "to celebrate the beginning of our forever.",
+    "With the blessings of our families, we invite you to " +
+    "celebrate the beginning of our forever.",
 
   venue: "Wedding venue — to be announced",
   city: "Madanapalli",
@@ -1181,23 +902,23 @@ const CONFIG = {
 
   contactName: "Wedding family",
 
-  // Include country code. Leave empty until confirmed.
+  // Example format: "+1XXXXXXXXXX" or "+91XXXXXXXXXX".
   contactPhone: "",
 
-  // WhatsApp RSVP recipient, e.g. country code + number.
-  // Use digits only, such as 91 followed by an Indian number.
+  // Example format: "91XXXXXXXXXX".
+  // RSVP messages will be sent to this number.
   whatsapp: "",
 
   rsvpMessage: "Please respond before the wedding.",
 
-  // Upload photos to your repository's assets folder.
   photos: [
-    "", // "assets/couple.jpg"
-    "", // "assets/engagement.jpg"
-    ""  // "assets/family.jpg"
+    "", // Photo 1: "assets/couple.jpg"
+    "", // Photo 2: "assets/engagement.jpg"
+    ""  // Photo 3: "assets/family.jpg"
   ],
 
-  // Pre-wedding times below are samples. Edit when confirmed.
+  // These pre-wedding event times are samples.
+  // Change the dates, times, and notes when confirmed.
   events: [
     {
       name: "Mehendi",
@@ -1220,29 +941,26 @@ const CONFIG = {
     {
       name: "Wedding",
 
-      // Blank means use weddingDate automatically.
+      // Leave blank to automatically use weddingDate.
       date: "",
       note: "Join us for our auspicious wedding ceremony.",
       icon: "✺"
     }
-  ],
-
-  // Increase for faster movement through the corridor.
-  walkingSpeed: 0.8
+  ]
 };
 
 /* ======================================================
-   WEBSITE LOGIC
+   WEBSITE LOGIC — NO EDITS NEEDED BELOW
    ====================================================== */
 
 const $ = id => document.getElementById(id);
 
-const setText = (id, value) => {
+const text = (id, value) => {
   $(id).textContent = value;
 };
 
-const motionPreference =
-  matchMedia("(prefers-reduced-motion: reduce)");
+const reducedMotion =
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const formatDate = (date, options) =>
   new Intl.DateTimeFormat("en-IN", {
@@ -1255,9 +973,9 @@ const digits = value =>
 
 function safeUrl(value) {
   try {
-    const url = new URL(value, location.href);
+    const url = new URL(value, window.location.href);
 
-    if (["http:", "https:", "file:"].includes(url.protocol)) {
+    if (["https:", "http:", "file:"].includes(url.protocol)) {
       return url.href;
     }
   } catch {}
@@ -1265,32 +983,32 @@ function safeUrl(value) {
   return "";
 }
 
-/* CONTENT */
+/* POPULATE CONTENT */
 
 document.title =
-  `${CONFIG.groom} & ${CONFIG.bride} — A Temple Wedding`;
+  `${CONFIG.groom} & ${CONFIG.bride} | Wedding Invitation`;
 
 const initials =
   `${CONFIG.groom.charAt(0)} & ${CONFIG.bride.charAt(0)}`;
 
-setText("doorInitials", initials);
-setText("navInitials", initials);
-setText("groomName", CONFIG.groom);
-setText("brideName", CONFIG.bride);
-setText("invitationText", CONFIG.invitation);
-setText("footerNames", `${CONFIG.groom} & ${CONFIG.bride}`);
+text("groomName", CONFIG.groom);
+text("brideName", CONFIG.bride);
+text("doorInitials", initials);
+text("navInitials", initials);
+text("invitationText", CONFIG.invitation);
+text("footerNames", `${CONFIG.groom} & ${CONFIG.bride}`);
 
-setText(
+text(
   "dateWeekday",
   formatDate(CONFIG.weddingDate, { weekday: "long" })
 );
 
-setText(
+text(
   "dateDay",
   formatDate(CONFIG.weddingDate, { day: "2-digit" })
 );
 
-setText(
+text(
   "dateMonth",
   formatDate(CONFIG.weddingDate, {
     month: "long",
@@ -1298,7 +1016,7 @@ setText(
   })
 );
 
-setText(
+text(
   "dateTime",
   formatDate(CONFIG.weddingDate, {
     hour: "numeric",
@@ -1306,68 +1024,71 @@ setText(
   }) + " IST"
 );
 
-setText("venueName", CONFIG.venue);
-setText("venueCity", CONFIG.city);
-setText("venueNote", CONFIG.venueNote);
-setText("rsvpMessage", CONFIG.rsvpMessage);
-setText("contactName", CONFIG.contactName);
+text("venueName", CONFIG.venue);
+text("venueCity", CONFIG.city);
+text("venueNote", CONFIG.venueNote);
+text("rsvpMessage", CONFIG.rsvpMessage);
+text("contactName", CONFIG.contactName);
 
 $("mapsLink").href =
   safeUrl(CONFIG.mapsUrl) ||
   "https://www.google.com/maps";
 
-/* CONTACTS */
+/* CONTACT LINKS */
 
 const phone = digits(CONFIG.contactPhone);
 const whatsapp = digits(CONFIG.whatsapp);
 
 if (phone) {
-  setText("contactPhone", CONFIG.contactPhone);
+  text("contactPhone", CONFIG.contactPhone);
   $("contactPhone").href = "tel:+" + phone;
 } else {
-  setText("contactPhone", "+1 … (contact to be updated)");
+  text("contactPhone", "+1 … (contact to be updated)");
+  $("contactPhone").removeAttribute("href");
 }
 
 if (whatsapp) {
   $("contactWhatsApp").href = "https://wa.me/" + whatsapp;
-
-  setText(
+  text(
     "rsvpStatus",
     "Your response opens in WhatsApp. Tap Send there to confirm."
   );
 } else {
   $("contactWhatsApp").hidden = true;
-
-  setText(
+  text(
     "rsvpStatus",
     "RSVP opens once the family adds a WhatsApp number."
   );
 }
 
-/* PHOTO PLACEHOLDERS */
+/* PHOTOS */
 
 document.querySelectorAll("[data-photo]").forEach(figure => {
-  const source = CONFIG.photos[Number(figure.dataset.photo)];
+  const index = Number(figure.dataset.photo);
+  const source = CONFIG.photos[index];
 
   if (!source || !safeUrl(source)) return;
 
   const image = new Image();
-  image.loading = "lazy";
 
   image.alt =
     `${CONFIG.groom} and ${CONFIG.bride} — wedding memory`;
+
+  image.loading = "lazy";
 
   image.onload = () => {
     figure.querySelector(".photo-placeholder").style.display = "none";
   };
 
-  image.onerror = () => image.remove();
+  image.onerror = () => {
+    image.remove();
+  };
 
   image.src = safeUrl(source);
   figure.appendChild(image);
 });
 
-/* EVENTS */
+/* EVENT SCHEDULE */
 
 CONFIG.events.forEach(event => {
   const date = event.date || CONFIG.weddingDate;
@@ -1405,125 +1126,25 @@ CONFIG.events.forEach(event => {
   $("eventList").appendChild(article);
 });
 
-/* TEMPLE CORRIDOR */
+/* TEMPLE DOOR ANIMATION */
 
-const frameCount = 8;
-const spacing = 420;
-const corridorLength = frameCount * spacing;
-const frames = [];
+let doorsOpened = false;
 
-for (let i = 0; i < frameCount; i++) {
-  const frame = document.createElement("div");
-  frame.className = "temple-frame";
+$("doorButton").addEventListener("click", () => {
+  if (doorsOpened) return;
 
-  // Decorative markup only; no configurable user content here.
-  frame.innerHTML = `
-    <div class="temple-beam"></div>
-    <div class="garland"></div>
-    <div class="pillar left">
-      <span class="pillar-carving">❦</span>
-    </div>
-    <div class="pillar right">
-      <span class="pillar-carving">❦</span>
-    </div>
-  `;
-
-  $("templeFrames").appendChild(frame);
-  frames.push(frame);
-}
-
-function updateTemple() {
-  const scrollPosition = window.scrollY;
-  const maxScroll = Math.max(
-    1,
-    document.documentElement.scrollHeight - innerHeight
-  );
-
-  const progress = Math.min(1, scrollPosition / maxScroll);
-  $("progress").style.transform = `scaleX(${progress})`;
-
-  const reduced = motionPreference.matches;
-
-  const travel = reduced
-    ? 0
-    : scrollPosition * CONFIG.walkingSpeed;
-
-  // A small vertical shift suggests footsteps.
-  const bob = reduced ? 0 : Math.sin(scrollPosition / 115) * 2;
-
-  frames.forEach((frame, index) => {
-    const distance =
-      ((index * spacing - travel) % corridorLength +
-        corridorLength) % corridorLength;
-
-    const z = 570 - distance;
-
-    // Frames fade out as they pass the camera, and reappear far away.
-    const nearFade = Math.min(
-      1,
-      Math.max(0, (distance - 10) / 180)
-    );
-
-    const farFade = Math.min(
-      1,
-      Math.max(0, (corridorLength - distance) / 650)
-    );
-
-    frame.style.opacity =
-      String(nearFade * farFade * 0.82);
-
-    frame.style.transform =
-      `translateY(${bob}px) translateZ(${z}px)`;
-  });
-
-  // Move the floor pattern to reinforce forward walking.
-  $("floor").style.backgroundPosition =
-    reduced ? "0 0" : `0 ${travel * 0.35}px`;
-}
-
-let scrollQueued = false;
-
-function queueTempleUpdate() {
-  if (scrollQueued) return;
-
-  scrollQueued = true;
-
-  requestAnimationFrame(() => {
-    updateTemple();
-    scrollQueued = false;
-  });
-}
-
-window.addEventListener("scroll", queueTempleUpdate, {
-  passive: true
-});
-
-window.addEventListener("resize", queueTempleUpdate);
-
-motionPreference.addEventListener("change", queueTempleUpdate);
-
-updateTemple();
-
-/* OPENING DOORS */
-
-let entered = false;
-
-$("openDoors").addEventListener("click", () => {
-  if (entered) return;
-
-  entered = true;
+  doorsOpened = true;
   $("entrance").classList.add("open");
 
-  setTimeout(() => {
-    $("entrance").classList.add("gone");
-    $("journey").inert = false;
+  window.setTimeout(() => {
+    $("entrance").classList.add("hidden");
+    $("invitation").inert = false;
     document.body.classList.remove("locked");
     $("navInitials").focus();
-    queueTempleUpdate();
-  }, motionPreference.matches ? 0 : 1600);
+  }, reducedMotion ? 0 : 1600);
 });
 
-/* COUNTDOWN */
+/* LIVE COUNTDOWN */
 
 function updateCountdown() {
   const remaining = Math.max(
@@ -1531,20 +1152,20 @@ function updateCountdown() {
     new Date(CONFIG.weddingDate).getTime() - Date.now()
   );
 
-  const seconds = Math.floor(remaining / 1000);
+  const totalSeconds = Math.floor(remaining / 1000);
 
   const values = {
-    days: Math.floor(seconds / 86400),
-    hours: Math.floor(seconds / 3600) % 24,
-    minutes: Math.floor(seconds / 60) % 60,
-    seconds: seconds % 60
+    days: Math.floor(totalSeconds / 86400),
+    hours: Math.floor(totalSeconds / 3600) % 24,
+    minutes: Math.floor(totalSeconds / 60) % 60,
+    seconds: totalSeconds % 60
   };
 
   Object.entries(values).forEach(([id, value]) => {
-    setText(id, String(value).padStart(2, "0"));
+    text(id, String(value).padStart(2, "0"));
   });
 
-  setText(
+  text(
     "countdownTitle",
     remaining > 0
       ? "Our forever begins in"
@@ -1553,25 +1174,25 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 1000);
+window.setInterval(updateCountdown, 1000);
 
-/* SCRATCH CARD */
+/* SCRATCH-TO-REVEAL CARD */
 
-const canvas = $("scratch");
+const canvas = $("scratchCanvas");
 const context = canvas.getContext("2d", {
   willReadFrequently: true
 });
 
-let revealed = false;
-let dragging = false;
-let previous = null;
-let checks = 0;
+let dateRevealed = false;
+let scratching = false;
+let previousPoint = null;
+let moveCount = 0;
 
-function paintScratch() {
-  if (revealed) return;
+function paintScratchCard() {
+  if (dateRevealed) return;
 
   const rectangle = canvas.getBoundingClientRect();
-  const ratio = Math.min(devicePixelRatio || 1, 2);
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
 
   canvas.width = Math.round(rectangle.width * ratio);
   canvas.height = Math.round(rectangle.height * ratio);
@@ -1583,41 +1204,40 @@ function paintScratch() {
     0, 0, rectangle.width, rectangle.height
   );
 
-  gradient.addColorStop(0, "#aa7f47");
-  gradient.addColorStop(.45, "#e9cd97");
-  gradient.addColorStop(1, "#a77a42");
+  gradient.addColorStop(0, "#b18a53");
+  gradient.addColorStop(.45, "#e6c991");
+  gradient.addColorStop(1, "#a67b44");
 
   context.fillStyle = gradient;
-
   context.fillRect(
     0, 0, rectangle.width, rectangle.height
   );
 
   context.textAlign = "center";
-  context.fillStyle = "#624429";
+  context.fillStyle = "#65472e";
 
-  context.font = "32px Georgia";
-  context.fillText("✺", rectangle.width / 2, 80);
+  context.font = "35px Georgia";
+  context.fillText("✺", rectangle.width / 2, 95);
 
   context.font = "italic 23px Georgia";
   context.fillText(
     "Our wedding day",
     rectangle.width / 2,
-    128
+    142
   );
 
-  context.font = "10px Arial";
+  context.font = "11px Arial";
   context.fillText(
     "SCRATCH TO REVEAL",
     rectangle.width / 2,
-    165
+    181
   );
 }
 
-paintScratch();
-new ResizeObserver(paintScratch).observe(canvas);
+paintScratchCard();
+new ResizeObserver(paintScratchCard).observe(canvas);
 
-function pointerPosition(event) {
+function getPoint(event) {
   const rectangle = canvas.getBoundingClientRect();
 
   return {
@@ -1627,51 +1247,58 @@ function pointerPosition(event) {
 }
 
 function scratch(event) {
-  if (!dragging || revealed) return;
+  if (!scratching || dateRevealed) return;
 
-  const point = pointerPosition(event);
+  const point = getPoint(event);
 
   context.globalCompositeOperation = "destination-out";
-  context.lineWidth = 43;
+  context.lineWidth = 45;
   context.lineCap = "round";
 
   context.beginPath();
 
   context.moveTo(
-    previous ? previous.x : point.x,
-    previous ? previous.y : point.y
+    previousPoint ? previousPoint.x : point.x,
+    previousPoint ? previousPoint.y : point.y
   );
 
   context.lineTo(point.x, point.y);
   context.stroke();
 
-  previous = point;
+  previousPoint = point;
+  moveCount++;
 
-  if (++checks % 6 === 0) checkCoverage();
+  if (moveCount % 6 === 0) {
+    checkScratchCoverage();
+  }
 }
 
-function checkCoverage() {
+function checkScratchCoverage() {
   const pixels = context.getImageData(
     0, 0, canvas.width, canvas.height
   ).data;
 
   let cleared = 0;
-  let total = 0;
+  let sampled = 0;
 
   for (let i = 3; i < pixels.length; i += 64) {
-    total++;
+    sampled++;
 
-    if (pixels[i] < 100) cleared++;
+    if (pixels[i] < 100) {
+      cleared++;
+    }
   }
 
-  if (total && cleared / total > .38) revealDate();
+  if (sampled && cleared / sampled > .38) {
+    revealDate();
+  }
 }
 
 canvas.addEventListener("pointerdown", event => {
-  if (revealed) return;
+  if (dateRevealed) return;
 
-  dragging = true;
-  previous = pointerPosition(event);
+  scratching = true;
+  previousPoint = getPoint(event);
 
   canvas.setPointerCapture(event.pointerId);
   scratch(event);
@@ -1680,44 +1307,46 @@ canvas.addEventListener("pointerdown", event => {
 canvas.addEventListener("pointermove", scratch);
 
 canvas.addEventListener("pointerup", () => {
-  dragging = false;
-  previous = null;
+  scratching = false;
+  previousPoint = null;
 
-  if (!revealed) checkCoverage();
+  if (!dateRevealed) {
+    checkScratchCoverage();
+  }
 });
 
 canvas.addEventListener("pointercancel", () => {
-  dragging = false;
-  previous = null;
+  scratching = false;
+  previousPoint = null;
 });
 
 function revealDate() {
-  if (revealed) return;
+  if (dateRevealed) return;
 
-  revealed = true;
+  dateRevealed = true;
   canvas.classList.add("revealed");
   $("revealButton").hidden = true;
 
-  setText(
+  text(
     "revealStatus",
-    "You’re invited! Let the celebrations begin."
+    "You’re invited! We look forward to celebrating with you."
   );
 
-  flowerShower();
+  showerFlowers();
 }
 
 $("revealButton").addEventListener("click", revealDate);
 
 /* FLOWER SHOWER */
 
-function flowerShower() {
-  if (motionPreference.matches) return;
+function showerFlowers() {
+  if (reducedMotion) return;
 
   const colors = [
-    "#ce8590",
-    "#ecc0bc",
-    "#d5ac6b",
-    "#fff0cf"
+    "#ca7d88",
+    "#e9b7b9",
+    "#cda268",
+    "#fff1d5"
   ];
 
   for (let i = 0; i < 80; i++) {
@@ -1736,11 +1365,11 @@ function flowerShower() {
       4 + Math.random() * 4 + "s";
 
     petal.style.animationDelay =
-      Math.random() * 1.3 + "s";
+      Math.random() * 1.4 + "s";
 
     $("petals").appendChild(petal);
 
-    setTimeout(() => petal.remove(), 10000);
+    window.setTimeout(() => petal.remove(), 10000);
   }
 }
 
@@ -1750,7 +1379,7 @@ $("rsvpForm").addEventListener("submit", event => {
   event.preventDefault();
 
   if (!whatsapp) {
-    setText(
+    text(
       "rsvpStatus",
       "The family has not added an RSVP number yet. " +
       "Please check back soon."
@@ -1768,16 +1397,15 @@ $("rsvpForm").addEventListener("submit", event => {
     `Message: ${data.get("message")}`
   ].join("\n");
 
-  window.open(
+  const url =
     "https://wa.me/" +
     whatsapp +
     "?text=" +
-    encodeURIComponent(message),
-    "_blank",
-    "noopener"
-  );
+    encodeURIComponent(message);
 
-  setText(
+  window.open(url, "_blank", "noopener");
+
+  text(
     "rsvpStatus",
     "Please tap Send in WhatsApp to submit your response."
   );
